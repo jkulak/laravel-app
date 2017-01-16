@@ -1,0 +1,21 @@
+version: "2"
+services:
+    app:
+        image: php-zendserver
+        links:
+            - db:mysql
+        ports:
+            - 8080:80
+            - 18081:10081
+        volumes:
+            - ./src/:/var/www/html
+        environment:
+            ZS_ADMIN_PASSWORD: admin
+            ZS_PRODUCTION: "true"
+            GIT_URL: https://github.com/jkulak/hhbd-app
+        container_name: "zf3app"
+
+    db:
+        image: mysql:5.6
+        environment:
+            MYSQL_ROOT_PASSWORD: example
