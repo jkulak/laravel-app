@@ -1,7 +1,9 @@
 version: "2"
 services:
     app:
-        image: php-zendserver
+        build:
+            context: .
+            dockerfile: Dockerfile
         links:
             - db:mysql
         ports:
@@ -11,8 +13,7 @@ services:
             - ./src/:/var/www/html
         environment:
             ZS_ADMIN_PASSWORD: admin
-            ZS_PRODUCTION: "true"
-            GIT_URL: https://github.com/jkulak/hhbd-app
+            # ZS_PRODUCTION: "true"
         container_name: "zf3app"
 
     db:
