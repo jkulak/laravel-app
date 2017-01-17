@@ -12,9 +12,11 @@
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    return "Hi!2";
+    return view('welcome');
 });
+
+Route::get('/controller', 'PagesController@home');
+Route::get('/second', 'PagesController@second');
 
 Route::get('/user/{id}', function ($id) {
     return 'User '.$id;
@@ -38,6 +40,3 @@ Route::get('/info', function () {
     $people = ['Tomek', 'Kuba', 'Andrzej'];
     return View::make(); //a faced, same as return view();
 });
-
-Route::get('/controller', 'PagesController@home');
-Route::get('/second', 'PagesController@second');
