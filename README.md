@@ -9,6 +9,24 @@ docker-compose up
 
 After successful run, your application (from `./src`) will be available at: http://localhost:8080/.
 
+# Development
+
+To fully use the development environment provided with Laravel and Zend Server, you need to install Nodejs dependecies, by loggin into the docker container
+
+```
+docker exec -ti web_app bash
+```
+
+And running `npm install` in `/var/www/html`.
+
+## Building
+
+To build and prepare your assets for production, use Gulp, that is bundled with Laravel skeleton apps. Gulp will be only available after performing the previous step of installing dependecies
+
+```
+./node_modules/.bin/gulp
+```
+
 # App container
 
 After `docker-compose up`, your Zend Server UI will be available at: http://localhost:18081/, with admin/admin default creditentials.
@@ -19,6 +37,8 @@ After `docker-compose up`, your Zend Server UI will be available at: http://loca
 * `composer` installed
 * `laravel` CLI installed
 * `php artisan` installed
+* `node` Node.js v. v6.9.4
+* `npm` v. 3.10.10
 
 ## Configuration
 
