@@ -15,6 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Using database and RESTful design
+Route::get('cards', 'CardsController@index');
+Route::get('cards/create', 'CardsController@create');
+Route::post('cards', 'CardsController@store');
+
+Route::post('cards/{id}/edit', 'CardsController@edit');
+Route::put('cards/{id}', 'CardsController@update');
+
+Route::delete('cards/{id}', 'CardsController@destroy');
+
+
+
+// Other examples
 Route::get('/controller', 'PagesController@home');
 Route::get('/second', 'PagesController@second');
 

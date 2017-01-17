@@ -35,6 +35,12 @@ For production
 ./node_modules/.bin/gulp --production
 ```
 
+## Database migrations
+
+```
+php artisan make:migration create_cards_table --create=cards
+```
+
 # App container
 
 After `docker-compose up`, your Zend Server UI will be available at: http://localhost:18081/, with admin/admin default creditentials.
