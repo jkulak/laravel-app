@@ -27,7 +27,6 @@ Route::get('/about', function () {
     // return view('pages.about', compact('people', 'tasks'));
     // return view('pages.about')->with('people', $people)->with('tasks', $tasks);
     // return view('pages.about')->withPeople($people)->withTasks($tasks);
-
     return view('pages.about', [
         'people' => $people,
         'tasks' => $tasks,
@@ -39,3 +38,6 @@ Route::get('/info', function () {
     $people = ['Tomek', 'Kuba', 'Andrzej'];
     return View::make(); //a faced, same as return view();
 });
+
+Route::get('/controller', 'PagesController@home');
+Route::get('/second', 'PagesController@second');
