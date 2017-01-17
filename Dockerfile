@@ -7,3 +7,8 @@ ENV PATH "/usr/local/zend/bin:$PATH"
 
 RUN curl -sS https://getcomposer.org/installer \
   | php -- --install-dir=/usr/local/bin --filename=composer
+
+# TODO: move dependencies to composer.json
+# TODO: do not use root account for composer?
+RUN composer global require "laravel/installer"
+ENV PATH "/root/.composer/vendor/bin:$PATH"
