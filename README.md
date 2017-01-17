@@ -19,3 +19,7 @@ After `docker-compose up`, your Zend Server UI will be available at: http://loca
 * `composer` installed
 * `laravel` CLI installed
 * `php artisan` installed
+
+## Configuration
+
+To use Z-Ray, you need to naviage to http://localhost:18081/ZendServer/#!/zray/settings/advanced and set the `Z-Ray URL` to `http://localhost:18081/ZendServer`

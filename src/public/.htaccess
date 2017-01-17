@@ -1,7 +1,9 @@
 <IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews
-    </IfModule>
+    # Commented out beacuse of
+    # /var/www/html/public/.htaccess: Options not allowed here
+    # <IfModule mod_negotiation.c>
+    #    Options -MultiViews
+    #</IfModule>
 
     RewriteEngine On
 
