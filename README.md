@@ -19,12 +19,20 @@ docker exec -ti web_app bash
 
 And running `npm install` in `/var/www/html`.
 
+Run `./node_modules/.bin/gulp watch` - to make gulp watch for changes in your assets and run its tasks automatically.
+
 ## Building
 
 To build and prepare your assets for production, use Gulp, that is bundled with Laravel skeleton apps. Gulp will be only available after performing the previous step of installing dependecies
 
 ```
 ./node_modules/.bin/gulp
+```
+
+For production
+
+```
+./node_modules/.bin/gulp --production
 ```
 
 # App container
