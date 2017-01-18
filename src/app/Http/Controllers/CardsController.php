@@ -15,13 +15,18 @@ class CardsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('admin', ['only' => ['show']]);
+        // $this->middleware('auth', ['except' => ['index']]);
     }
-    
+
     public function index()
     {
         // $cards = DB::table('cards')->get();
         $cards = Card::all();
+
+        session()->flash('flash_message', "Smok Wawelski zrobi co trzeba!");
+        // Session::put('status', "A to jest ten status!");
+        // session()->flash('status', "A to jest ten status!");
 
         return view('cards.index', [
             'cards' => $cards

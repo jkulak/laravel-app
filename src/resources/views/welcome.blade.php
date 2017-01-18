@@ -1,10 +1,13 @@
 @extends('layout')
 
-@section('content')
-    <h1>Welcome to Laravel!</h1>
-    This is the welcome page here!
+@section('header')
+
 @stop
 
-@section('header')
-    
+@section('content')
+    <div class="container">
+        <h1>Welcome to Laravel!</h1>
+        This is the welcome page here!
+    </div>
+
 @stop

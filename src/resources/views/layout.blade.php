@@ -77,6 +77,18 @@
             </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+
+        @if (Session::has('flash_message'))
+        <div class="alert alert-info" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Notice: </span>
+                {{ Session::get('flash_message') }}
+        </div>
+        @endif
+
+
+
+
         <div class="container">
             @yield('content')
         </div>
