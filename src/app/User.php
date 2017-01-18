@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     public function path()
     {
-        return "/users/" . $this->id;
+        return route('users_show', ['user' => $this->id]);
     }
 }

@@ -16,17 +16,17 @@ Route::get('/', function () {
 });
 
 // Cards
-Route::get('cards', 'CardsController@index');
-Route::get('cards/{card}', 'CardsController@show');
+Route::get('cards', 'CardsController@index')->name('cards_index');
+Route::get('cards/{card}', 'CardsController@show')->name('cards_show');
 
 // Notes
-Route::get('notes/{note}/edit', 'NotesController@edit');
+Route::get('notes/{note}/edit', 'NotesController@edit')->name('notes_edit');
 Route::post('cards/{card}/notes', 'NotesController@store');
-Route::patch('notes/{note}', 'NotesController@update');
+Route::patch('notes/{note}', 'NotesController@update')->name('notes_update');
 
 // Users
-Route::get('users', 'UsersController@index');
-Route::get('users/{user}', 'UsersController@show');
+Route::get('users', 'UsersController@index')->name('users_index');
+Route::get('users/{user}', 'UsersController@show')->name('users_show');
 
 
 

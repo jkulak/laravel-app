@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <h1>Edit a node</h1>
+    <h1>Edit a note</h1>
 
-    <form class="post" action="/notes/{{ $note->id }}" method="post">
+    <form class="post" action="{{ route('notes_update', ['note' => $note->id]) }}" method="post">
         {{ method_field('patch') }}
         {{ csrf_field() }}
         <div class="form-group">

@@ -26,7 +26,8 @@ class NotesController extends Controller
         // $note->by(some_user);
 
         $this->validate($request, [
-            'body' => 'required'
+            'body' => ['required', 'unique:notes', 'min:5']
+            // 'body' => ['required']
         ]);
 
         $card->addNote(

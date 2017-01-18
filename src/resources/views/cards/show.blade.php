@@ -6,17 +6,9 @@
 </pre>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <h1>{{ $card->title }}</h1>
-            <ul class="list-group">
-            @foreach ($card->notes as $note)
-                <li class="list-group-item">
-                    {{ $note->body }}
-                    <a href="{{ $note->user->path() }}" class="pull-right">{{ $note->user->username }}</a>
-                </li>
-            @endforeach
-            </ul>
 
-            <hr>
+            <h1>{{ $card->title }}</h1>
+
             <h3>Add new note</h3>
             <!-- <pre>{{ var_dump($errors) }}</pre> -->
             @if (count($errors))
@@ -33,7 +25,7 @@
             <form action="/cards/{{ $card->id }}/notes" method="post">
                 <div class="form-group">
                     <label for="note_body">Note</label>
-                    <textarea name="body" id="note_body" class="form-control"></textarea>
+                    <textarea name="body" id="note_body" class="form-control">{{ old('body') }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="user_id">User</label>
@@ -49,6 +41,17 @@
                 {{ csrf_field() }}
 
             </form>
+
+            <hr>
+
+            <ul class="list-group">
+            @foreach ($card->notes->reverse() as $note)
+                <li class="list-group-item">
+                    {{ $note->body }} (<a href="{{ route('notes_edit', ['note' => $note->id])}}">edit - doesnt work</a>)
+                    <a href="{{ $note->user->path() }}" class="pull-right">{{ $note->user->username }}</a>
+                </li>
+            @endforeach
+            </ul>
         </div>
     </div>
 @stop
