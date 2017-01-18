@@ -24,7 +24,7 @@ class CardsController extends Controller
         // $cards = DB::table('cards')->get();
         $cards = Card::all();
 
-        session()->flash('flash_message', "Smok Wawelski zrobi co trzeba!");
+        flash("Smok Wawelski zrobi co trzeba!", 2);
         // Session::put('status', "A to jest ten status!");
         // session()->flash('status', "A to jest ten status!");
 

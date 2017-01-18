@@ -7692,4 +7692,9 @@ body {
   background-color: #ecf5f3;
 }
 
+body {
+  background-color: brown;
+  border: 0;
+}
+
 /*# sourceMappingURL=app.css.map */
