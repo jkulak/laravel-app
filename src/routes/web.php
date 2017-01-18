@@ -15,29 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Using database and RESTful design
+// Cards
 Route::get('cards', 'CardsController@index');
 Route::get('cards/{card}', 'CardsController@show');
 
-Route::post('cards/{card}/notes', 'NotesController@store');
-
+// Notes
 Route::get('notes/{note}/edit', 'NotesController@edit');
+Route::post('cards/{card}/notes', 'NotesController@store');
 Route::patch('notes/{note}', 'NotesController@update');
 
-
-Route::get('cards/create', 'CardsController@create');
-Route::post('cards', 'CardsController@store');
-Route::post('cards/{id}/edit', 'CardsController@edit');
-
-Route::put('cards/{id}', 'CardsController@update');
-Route::delete('cards/{id}', 'CardsController@destroy');
+// Users
+Route::get('users', 'UsersController@index');
+Route::get('users/{user}', 'UsersController@show');
 
 
 
 // Other examples
-Route::get('/controller', 'PagesController@home');
-Route::get('/second', 'PagesController@second');
-
 Route::get('/user/{id}', function ($id) {
     return 'User '.$id;
 });
@@ -58,5 +51,5 @@ Route::get('/about', function () {
 // Using a facade
 Route::get('/info', function () {
     $people = ['Tomek', 'Kuba', 'Andrzej'];
-    return View::make(); //a faced, same as return view();
+    return View::make(); //a facade, same as return view();
 });

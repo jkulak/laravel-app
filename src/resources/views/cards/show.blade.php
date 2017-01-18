@@ -11,13 +11,25 @@
             @foreach ($card->notes as $note)
                 <li class="list-group-item">
                     {{ $note->body }}
-                    <a href="#">{{ $note->user->username }}</a>
+                    <a href="{{ $note->user->path() }}" class="pull-right">{{ $note->user->username }}</a>
                 </li>
             @endforeach
             </ul>
 
             <hr>
             <h3>Add new note</h3>
+            <!-- <pre>{{ var_dump($errors) }}</pre> -->
+            @if (count($errors))
+                <div>
+                    @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        {{ $error }}
+                    </div>
+                    @endforeach
+                </div>
+            @endif
             <form action="/cards/{{ $card->id }}/notes" method="post">
                 <div class="form-group">
                     <label for="note_body">Note</label>
@@ -35,6 +47,7 @@
                     <button type="submit" class="btn btn-primary">Add note</button>
                 </div>
                 {{ csrf_field() }}
+
             </form>
         </div>
     </div>

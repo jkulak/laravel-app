@@ -6,5 +6,5 @@
 @stop
 
 @section('header')
-    this is only in the header
+    
 @stop
