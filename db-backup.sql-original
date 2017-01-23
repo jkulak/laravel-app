@@ -1,0 +1,143 @@
+DROP TABLE IF EXISTS `cards`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cards` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cards`
+--
+
+LOCK TABLES `cards` WRITE;
+/*!40000 ALTER TABLE `cards` DISABLE KEYS */;
+INSERT INTO `cards` VALUES (1,'This is the first card','2017-01-17 22:56:18','2017-01-17 22:56:18');
+/*!40000 ALTER TABLE `cards` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (4,'2014_10_12_000000_create_users_table',1),(5,'2017_01_17_151510_create_cards_table',1),(6,'2017_01_17_204745_create_notes_table1',1),(7,'2014_10_12_100000_create_password_resets_table',2);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notes`
+--
+
+DROP TABLE IF EXISTS `notes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `body` text COLLATE utf8_unicode_ci NOT NULL,
+  `card_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `notes_card_id_index` (`card_id`),
+  KEY `notes_user_id_index` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notes`
+--
+
+LOCK TABLES `notes` WRITE;
+/*!40000 ALTER TABLE `notes` DISABLE KEYS */;
+INSERT INTO `notes` VALUES (1,'First note on the first card',1,1,'2017-01-17 22:58:39','2017-01-17 22:58:39'),(2,'This is a note from a user',1,1,'2017-01-18 08:38:14','2017-01-18 08:38:14'),(3,'Will this finally work?',1,1,'2017-01-18 08:38:25','2017-01-18 08:38:25'),(4,'This is a note',1,1,'2017-01-18 08:40:21','2017-01-18 08:40:21'),(5,'adasdfsdaf',1,1,'2017-01-18 08:43:49','2017-01-18 08:43:49'),(6,'And finally with a dropdown!',1,1,'2017-01-18 08:48:45','2017-01-18 08:48:45'),(7,'asdfasdfsdf',1,1,'2017-01-18 09:09:50','2017-01-18 09:09:50'),(8,'Od Adama wszystkiego najlpszego!',1,2,'2017-01-18 09:13:20','2017-01-18 09:13:20'),(9,'A teraz Adam wielką literą!\r\n\r\n\r\n\r\n\r\n.',1,3,'2017-01-18 09:13:41','2017-01-18 09:13:41'),(10,'sdfadfadsf',1,1,'2017-01-18 10:30:18','2017-01-18 10:30:18'),(11,'dupa',1,1,'2017-01-18 10:52:50','2017-01-18 10:52:50'),(12,'ss',1,1,'2017-01-18 11:05:41','2017-01-18 11:05:41'),(13,'dupa\r\n',1,1,'2017-01-18 11:08:32','2017-01-18 11:08:32'),(14,'jednak nie!',1,1,'2017-01-18 11:26:46','2017-01-18 11:27:50'),(15,'gggg5',1,3,'2017-01-18 11:30:46','2017-01-18 11:30:46'),(16,'12345',1,1,'2017-01-18 11:30:53','2017-01-18 11:30:53'),(17,'fsdff',1,1,'2017-01-18 11:32:10','2017-01-18 11:32:10');
+/*!40000 ALTER TABLE `notes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`),
+  KEY `password_resets_token_index` (`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+LOCK TABLES `password_resets` WRITE;
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+INSERT INTO `password_resets` VALUES ('nb@nb.nb','a9a44092796dedfab34745a27d73aca54399adb81c71155ad4a2d1040c40c599','2017-01-18 12:23:43');
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Kuba','j@k.pl','$2y$10$XzIid0My0gZamsLLLM9Rz..0blCJIBzlYqNvsV79iCOrLaLUe/zze','g0OLsKrwawK6n3Rb5cp4A1zorr8CN0I7QvSTn2fZiup2LwhmdukboIk4htSW','2017-01-17 22:59:18','2017-01-18 13:18:22'),(2,'adam','adam@mojastrona.pl','$2y$10$bZIU6KFUG95RB/uFUER18etifcLeJC7U2x6OA7rKhS.of5RsRQpjW',NULL,NULL,NULL),(3,'Adam','ddd@.sdfsdfds.pl','$2y$10$6jS245pfRunMFM5VOm0y/u.EZEm0u9RLxoBWYKXBTj0chYblIefje',NULL,'2017-01-18 09:11:52','2017-01-18 09:11:52'),(4,'popo','popo@gmail.com','$2y$10$0Wtl397TkrRNFjedFl6mcegh0fYvRZv0vu0IEgGNm2PCIKBw5XolW','MzYdP6zn1euNQJ2ooJq1QQa5hmoDEumEyqQYtEC4DcMC6GOtbwDlFdMVCzms','2017-01-18 12:02:15','2017-01-18 12:23:17'),(5,'lklk','lk@lk.lk','$2y$10$8EObL5KQqMLtXmvRxu5VhejunID02LYV2Yj5ywlqPinu4frkHDenC',NULL,'2017-01-18 12:09:22','2017-01-18 12:09:22'),(6,'mn','mn@mn.mn','$2y$10$6m4hyGmnq2Jjh5C/R5cu8Od7PC0OAfFuy7wC98RyMmlujdq8ocSp6','f9Uw3KXFehqPcrmy0nvcuMmaGXeKYjmTPsttwU4qGgufvNprU950anuQnkzo','2017-01-18 12:12:14','2017-01-18 12:57:50'),(7,'nbnb','nb@nb.nb','$2y$10$IDVyC59V0U2XW6EuuqlUq.SpcqerXrcEHOPoX5CfeUoq5ma9T40kq','udJMJyiuauzWUjfH2BP5uk6gzluwo2jAeO1fLn9tMcaVqiqD61JRsATrCDZI','2017-01-18 12:23:31','2017-01-18 12:27:16');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-01-18 19:42:19

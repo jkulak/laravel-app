@@ -51,3 +51,13 @@ After `docker-compose up`, your Zend Server UI will be available at: http://loca
 ## Configuration
 
 To use Z-Ray, you need to naviage to http://localhost:18081/ZendServer/#!/zray/settings/advanced and set the `Z-Ray URL` to `http://localhost:18081/ZendServer`
+
+## Database
+
+### Create backup
+
+`docker run --net zf3app_default --rm mysql:5.7 mysqldump -h zf3app_db_1 -uroot -pexample cards > db-backup.sql`
+
+### Restore backup
+
+`docker run --net zf3app_default --rm mysql:5.7 mysql --verbose -h zf3app_db_1 -uroot -pexample cards < db-backup.sql`
